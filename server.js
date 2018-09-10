@@ -3,10 +3,10 @@ var app = express();
 
 //var server = require('http').createServer(app);
 //var io = require('socket.io')(server);
-app.set('port', process.env.PORT || 3000);
-var server = app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + server.address().port);
-});
+// app.set('port', process.env.PORT || 3000);
+// var server = app.listen(app.get('port'), function () {
+    // console.log('Express server listening on port ' + server.address().port);
+// });
 // io = require('socket.io')(server);
 
 var port=process.env.PORT || 3000;
@@ -19,5 +19,5 @@ var port=process.env.PORT || 3000;
   res.render('./public/nilesh.html');
 });
 
-//app.listen(port);
+app.listen(port);
 console.log('server listening at port'+port);
