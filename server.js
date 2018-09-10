@@ -6,7 +6,7 @@ try
 }
 catch(ex)
 {
-	 console.log(err.message);
+	 console.log(ex.message);
 }
 
 var port=process.env.PORT || 3000;
