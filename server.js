@@ -1,9 +1,8 @@
 var express =require('express');
 var app = express();
-let http ;
 try 
 {
-	http = require('https').Server(app);
+	let http = require('https').Server(app);
 }
 catch(ex)
 {
