@@ -1,31 +1,22 @@
 
 
-var express =require('express');
-var app = express();
-let http = require('http').Server(app);
-let io = require('socket.io')(http);
-var port=process.env.PORT || 3000;
 
-app.get(/^socket.io.js$/, function(req, res) {
+var port = process.env.port || 81;
 
-  res.setHeader('Access-Control-Allow-Origin', 'TRUE');
-  // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  
-  res.sendfile('socket.io.js');
-  next();
-  
-  });
+var app = require('http').createServer(handler)
+  , io = require('socket.io').listen(app)
 
+app.listen(port);
+console.log('socket.io server started on port: ' + port + '\n');
 
-// app.use(function(req, res, next) {
-    // res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    // next();
-// });
+function handler (req, res) {
+  res.writeHead(200);
+  res.end('socket.io server started on port: ' + port + '\n');
+}
 
-io.on('connection', (socket) => {
+io.sockets.on('connection', function (socket) {
   console.log('user connected');
+
   
   socket.on('disconnect', function(){
     console.log('user disconnected');
@@ -35,10 +26,6 @@ io.on('connection', (socket) => {
     io.emit('message', {type:'new-message', text: message});    
   });
 });
-
-http.listen(port, () => {
-  console.log(http);
 });
-
 
 
