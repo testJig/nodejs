@@ -1,14 +1,9 @@
 var express =require('express');
 var app = express();
-try 
-{
-	var server = require('https').createServer(app);
-	//let http = require('https').Server(app);
-}
-catch(ex)
-{
-	 console.log(ex.message);
-}
+
+var server = require('https').createServer(app);
+var io = require('socket.io')(server);
+
 
 var port=process.env.PORT || 3000;
 
