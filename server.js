@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/',function(req,res){
 console.log('hello from server');
- res.render('./public/index.html');
+ res.render('./public/nilesh.html');
 });
 
 app.listen(port);
