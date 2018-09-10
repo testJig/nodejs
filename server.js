@@ -9,15 +9,15 @@ var server = app.listen(app.get('port'), function () {
 });
 var io = require('socket.io')(server);
 
-var port=process.env.PORT || 3000;
+//var port=process.env.PORT || 3000;
 
-app.use(express.static(__dirname + '/public'));
-console.log('Server Listening at port'+port);
+// app.use(express.static(__dirname + '/public'));
+// console.log('Server Listening at port'+port);
 
-app.get('/',function(req,res){
-console.log('hello from server');
- res.render('./public/nilesh.html');
-});
+// app.get('/',function(req,res){
+// console.log('hello from server');
+ // res.render('./public/nilesh.html');
+// });
 
 //app.listen(port);
 console.log('Server Listening at port'+port);
