@@ -1,6 +1,15 @@
 var express =require('express');
 var app = express();
-let http = require('https').Server(app);
+let http ;
+try 
+{
+	http = require('https').Server(app);
+}
+catch(ex)
+{
+	 console.log(err.message);
+}
+
 var port=process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
